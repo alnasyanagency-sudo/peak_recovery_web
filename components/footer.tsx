@@ -46,7 +46,7 @@ export function Footer() {
               <span className="text-lg font-extrabold text-white">التعافي للحجامة</span>
             </div>
             <p className="text-sm leading-relaxed text-white/40 mb-6">
-              مركز متخصص في الحجامة العلاجية بأعلى معايير الجودة والتعقيم. أقسام رجالية ونسائية منفصلة مع فريق متخصص وخبرة تتجاوز ١٠ سنوات.
+              مركز متخصص في الحجامة العلاجية بأعلى معايير الجودة والتعقيم. أقسام رجالية ونسائية منفصلة مع فريق متخصص .
             </p>
             <div className="flex gap-2.5">
               {socialLinks.map((social, index) => (
@@ -103,7 +103,7 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <i className="fa-solid fa-location-dot text-[var(--green)] mt-1"></i>
-                <span className="text-sm text-white/40">حي السلام، الرياض، المملكة العربية السعودية</span>
+                <span className="text-sm text-white/40">شارع الملك خالد بن عبد العزيز، حي الإسكان، بريدة 52387</span>
               </li>
               <li className="flex items-center gap-3">
                 <i className="fa-solid fa-phone text-[var(--green)]"></i>
