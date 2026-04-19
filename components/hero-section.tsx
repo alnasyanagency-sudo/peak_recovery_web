@@ -36,7 +36,7 @@ export function HeroSection() {
       <div className="absolute w-[350px] h-[350px] rounded-full bg-[var(--gold)]/10 -bottom-[80px] -left-[80px] blur-[100px] animate-float-delayed z-[1]"></div>
 
       {/* CONTENT */}
-      <div className="container mx-auto px-4 lg:px-60 relative z-[3] grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center pt-32 pb-10">
+      <div className="container mx-auto px-[16px] lg:px-[60px] relative z-[3] grid lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-16 items-center pt-32 pb-10">
 
         {/* Content */}
         <div className="text-center lg:text-right">
