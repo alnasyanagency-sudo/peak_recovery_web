@@ -24,7 +24,10 @@ const locationInfo = [
 export function MapSection() {
   return (
     <section className="py-20 lg:py-28 bg-[#FAFAF7]">
-      <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-10 items-stretch">
+
+      {/* ✅ FIX: padding 16 mobile / 60 desktop */}
+      <div className="container mx-auto px-[16px] lg:px-[60px] grid lg:grid-cols-2 gap-10 items-stretch">
+
         {/* Info */}
         <div className="flex flex-col gap-5 justify-center">
           {locationInfo.map((info, index) => (
@@ -35,9 +38,12 @@ export function MapSection() {
               <div className={`w-12 h-12 ${info.color} rounded-xl flex items-center justify-center text-white text-lg flex-shrink-0`}>
                 <i className={`fa-solid ${info.icon}`}></i>
               </div>
+
               <div>
                 <div className="font-bold text-gray-900 mb-1">{info.title}</div>
-                <div className="text-sm text-gray-500 leading-relaxed whitespace-pre-line">{info.description}</div>
+                <div className="text-sm text-gray-500 leading-relaxed whitespace-pre-line">
+                  {info.description}
+                </div>
               </div>
             </div>
           ))}
@@ -56,6 +62,7 @@ export function MapSection() {
             title="موقع مركز التعافي"
           ></iframe>
         </div>
+
       </div>
     </section>
   )

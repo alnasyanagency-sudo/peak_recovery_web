@@ -47,23 +47,27 @@ export function BookingSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission
     const whatsappMessage = `مرحباً، أود حجز موعد\n\nالاسم: ${formData.name}\nالجوال: ${formData.phone}\nالخدمة: ${formData.service}\nالقسم: ${formData.section}\nالتاريخ: ${formData.date}`
     window.open(`https://wa.me/966555160703?text=${encodeURIComponent(whatsappMessage)}`, '_blank')
   }
 
   return (
     <section id="booking" className="py-20 lg:py-28 bg-white">
-      <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+      {/* ✅ FIX: padding 16 mobile / 60 desktop */}
+      <div className="container mx-auto px-[16px] lg:px-[60px] grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
         {/* Info */}
         <div>
           <div className="inline-flex items-center gap-2 text-sm font-bold text-[var(--green)] px-4 py-2 rounded-full bg-[var(--green)]/10 border border-[var(--green)]/20 mb-5">
             <i className="fa-solid fa-calendar-check text-xs"></i>
             احجز موعدك
           </div>
+
           <h2 className="text-3xl lg:text-4xl font-black text-gray-900 mb-4">
             خطوتك الأولى نحو التعافي
           </h2>
+
           <p className="text-gray-500 leading-relaxed mb-8">
             عبّي النموذج وبنتواصل معك في أقرب وقت لتأكيد موعدك. أو تقدر تتواصل معنا مباشرة:
           </p>
@@ -75,13 +79,14 @@ export function BookingSection() {
                   <div className={`w-11 h-11 ${info.color} rounded-xl flex items-center justify-center text-white flex-shrink-0`}>
                     <i className={`${info.icon.startsWith('fa-brands') ? info.icon : `fa-solid ${info.icon}`}`}></i>
                   </div>
+
                   <div>
                     <div className="text-xs text-gray-400 font-medium">{info.label}</div>
                     <div className="text-sm font-semibold text-gray-700" dir="ltr">{info.value}</div>
                   </div>
                 </>
               )
-              
+
               return info.href ? (
                 <a
                   key={index}
@@ -93,9 +98,9 @@ export function BookingSection() {
                   {content}
                 </a>
               ) : (
-                <div 
+                <div
                   key={index}
-                  className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-transparent"
+                  className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl"
                 >
                   {content}
                 </div>
@@ -106,12 +111,16 @@ export function BookingSection() {
 
         {/* Form */}
         <div className="bg-gray-50 border border-gray-200 rounded-3xl p-8 lg:p-10 relative overflow-hidden">
+
           {/* Gradient Line */}
           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--green)] via-[var(--gold)] to-[var(--red)]"></div>
 
-          <h3 className="text-xl font-extrabold text-gray-900 mb-7">احجز موعدك الآن</h3>
+          <h3 className="text-xl font-extrabold text-gray-900 mb-7">
+            احجز موعدك الآن
+          </h3>
 
           <form onSubmit={handleSubmit} className="space-y-4">
+
             <div className="grid sm:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-gray-700">الاسم الكامل</label>
@@ -121,9 +130,10 @@ export function BookingSection() {
                   placeholder="أدخل اسمك"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl bg-white text-gray-900 font-medium placeholder:text-gray-300 focus:border-[var(--green)] focus:ring-4 focus:ring-[var(--green)]/10 outline-none transition-all"
+                  className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl bg-white focus:border-[var(--green)] focus:ring-4 focus:ring-[var(--green)]/10 outline-none transition-all"
                 />
               </div>
+
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-gray-700">رقم الجوال</label>
                 <input
@@ -133,7 +143,7 @@ export function BookingSection() {
                   dir="ltr"
                   value={formData.phone}
                   onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl bg-white text-gray-900 font-medium placeholder:text-gray-300 focus:border-[var(--green)] focus:ring-4 focus:ring-[var(--green)]/10 outline-none transition-all text-right"
+                  className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl bg-white text-right focus:border-[var(--green)] focus:ring-4 focus:ring-[var(--green)]/10 outline-none transition-all"
                 />
               </div>
             </div>
@@ -145,7 +155,7 @@ export function BookingSection() {
                   required
                   value={formData.service}
                   onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                  className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl bg-white text-gray-900 font-medium focus:border-[var(--green)] focus:ring-4 focus:ring-[var(--green)]/10 outline-none transition-all appearance-none cursor-pointer"
+                  className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl bg-white focus:border-[var(--green)] focus:ring-4 focus:ring-[var(--green)]/10 outline-none transition-all"
                 >
                   <option value="">اختر الخدمة</option>
                   {services.map((service, index) => (
@@ -153,13 +163,14 @@ export function BookingSection() {
                   ))}
                 </select>
               </div>
+
               <div className="space-y-2">
                 <label className="text-sm font-semibold text-gray-700">القسم</label>
                 <select
                   required
                   value={formData.section}
                   onChange={(e) => setFormData({ ...formData, section: e.target.value })}
-                  className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl bg-white text-gray-900 font-medium focus:border-[var(--green)] focus:ring-4 focus:ring-[var(--green)]/10 outline-none transition-all appearance-none cursor-pointer"
+                  className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl bg-white focus:border-[var(--green)] focus:ring-4 focus:ring-[var(--green)]/10 outline-none transition-all"
                 >
                   <option value="">اختر القسم</option>
                   <option value="رجالي">رجالي</option>
@@ -175,19 +186,21 @@ export function BookingSection() {
                 required
                 value={formData.date}
                 onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl bg-white text-gray-900 font-medium focus:border-[var(--green)] focus:ring-4 focus:ring-[var(--green)]/10 outline-none transition-all"
+                className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl bg-white focus:border-[var(--green)] focus:ring-4 focus:ring-[var(--green)]/10 outline-none transition-all"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full mt-6 bg-[var(--green)] text-white py-4 rounded-full font-bold text-lg shadow-lg shadow-[var(--green)]/25 hover:bg-[var(--green-light)] hover:-translate-y-1 hover:shadow-xl hover:shadow-[var(--green)]/35 transition-all duration-400 flex items-center justify-center gap-2"
+              className="w-full mt-6 bg-[var(--green)] text-white py-4 rounded-full font-bold text-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-400 flex items-center justify-center gap-2"
             >
               <i className="fa-solid fa-calendar-check"></i>
               <span>تأكيد الحجز</span>
             </button>
+
           </form>
         </div>
+
       </div>
     </section>
   )

@@ -17,8 +17,11 @@ const features = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-20 lg:py-28 bg-white">
-      <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <section id="about" className="py-4 lg:py-[60px] bg-white">
+
+      {/* ✅ Padding Fix: 16 mobile / 60 desktop */}
+      <div className="container mx-auto px-[16px] lg:px-[60px] grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
         {/* Gallery */}
         <div className="grid grid-cols-2 grid-rows-2 gap-4 relative order-2 lg:order-1">
           <div className="row-span-2 rounded-2xl overflow-hidden shadow-lg group">
@@ -31,6 +34,7 @@ export function AboutSection() {
               />
             </div>
           </div>
+
           <div className="rounded-2xl overflow-hidden shadow-lg group">
             <div className="relative h-48">
               <Image 
@@ -41,6 +45,7 @@ export function AboutSection() {
               />
             </div>
           </div>
+
           <div className="rounded-2xl overflow-hidden shadow-lg group">
             <div className="relative h-48">
               <Image 
@@ -88,6 +93,7 @@ export function AboutSection() {
             ))}
           </div>
         </div>
+
       </div>
     </section>
   )
