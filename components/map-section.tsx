@@ -4,7 +4,7 @@ const locationInfo = [
   {
     icon: "fa-location-dot",
     title: "العنوان",
-    description: "حي السلام، الرياض، المملكة العربية السعودية",
+    description: "شارع الملك خالد بن عبد العزيز، حي الإسكان، بريدة 52387",
     color: "bg-[var(--green)]"
   },
   {
