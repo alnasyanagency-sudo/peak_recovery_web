@@ -20,9 +20,7 @@ export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
+    const handleScroll = () => setIsScrolled(window.scrollY > 50)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -31,8 +29,10 @@ export function Navigation() {
     <>
       {/* Top Bar */}
       <div className="bg-[var(--green-dark)] text-white py-2 fixed top-0 left-0 right-0 z-[1001]">
-        <div className="container mx-auto px-4 lg:px-60 flex items-center justify-between text-sm">
-          
+
+        {/* ✅ FIX: padding 16 mobile / 60 desktop */}
+        <div className="container mx-auto px-[16px] lg:px-[60px] flex items-center justify-between text-sm">
+
           <div className="flex items-center gap-6">
             <span className="flex items-center gap-2">
               <i className="fa-solid fa-phone text-[var(--gold)]"></i>
@@ -53,21 +53,20 @@ export function Navigation() {
         </div>
       </div>
 
-      {/* Main Navigation */}
+      {/* Main Nav */}
       <nav className={cn(
         "fixed top-8 left-0 right-0 z-[1000] py-4 transition-all duration-500",
-        isScrolled 
-          ? "bg-white/95 backdrop-blur-xl shadow-lg py-3" 
-          : "bg-transparent"
+        isScrolled ? "bg-white/95 backdrop-blur-xl shadow-lg py-3" : "bg-transparent"
       )}>
-        <div className="container mx-auto px-4 lg:px-60 flex items-center justify-between">
-          
+
+        <div className="container mx-auto px-[16px] lg:px-[60px] flex items-center justify-between">
+
           {/* Logo */}
           <Link href="#hero" className="flex items-center gap-3">
-            <Image 
-              src={LOGO_URL} 
-              alt="مركز قمة التعافي للحجامة" 
-              width={50} 
+            <Image
+              src={LOGO_URL}
+              alt="مركز قمة التعافي للحجامة"
+              width={50}
               height={50}
               className={cn(
                 "transition-all duration-400",
@@ -86,12 +85,12 @@ export function Navigation() {
           <ul className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link 
+                <Link
                   href={link.href}
                   className={cn(
                     "px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-300",
-                    isScrolled 
-                      ? "text-gray-600 hover:bg-[var(--green)]/10 hover:text-[var(--green)]" 
+                    isScrolled
+                      ? "text-gray-600 hover:bg-[var(--green)]/10 hover:text-[var(--green)]"
                       : "text-white/85 hover:bg-white/10 hover:text-white"
                   )}
                 >
@@ -99,24 +98,24 @@ export function Navigation() {
                 </Link>
               </li>
             ))}
+
             <li>
-              <Link 
+              <Link
                 href="#booking"
-                className="bg-[var(--red)] text-white px-5 py-2.5 rounded-full text-sm font-bold mr-2 hover:bg-[var(--red-dark)] hover:-translate-y-0.5 hover:shadow-lg transition-all duration-300"
+                className="bg-[var(--red)] text-white px-5 py-2.5 rounded-full text-sm font-bold mr-2 hover:bg-[var(--red-dark)] hover:-translate-y-0.5 hover:shadow-lg transition-all"
               >
                 احجز موعدك
               </Link>
             </li>
           </ul>
 
-          {/* Mobile Menu Button */}
-          <button 
+          {/* Mobile Button */}
+          <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className={cn(
-              "lg:hidden p-2 text-xl transition-colors duration-400",
+              "lg:hidden p-2 text-xl",
               isScrolled ? "text-[var(--green)]" : "text-white"
             )}
-            aria-label="القائمة"
           >
             <i className={`fa-solid ${isMenuOpen ? 'fa-xmark' : 'fa-bars'}`}></i>
           </button>
@@ -131,7 +130,7 @@ export function Navigation() {
           <ul className="py-4 px-4 space-y-1">
             {navLinks.map((link) => (
               <li key={link.href}>
-                <Link 
+                <Link
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
                   className="block px-4 py-3 rounded-lg text-gray-700 font-semibold hover:bg-[var(--green)]/10 hover:text-[var(--green)] transition-all"
@@ -140,11 +139,12 @@ export function Navigation() {
                 </Link>
               </li>
             ))}
+
             <li className="pt-2">
-              <Link 
+              <Link
                 href="#booking"
                 onClick={() => setIsMenuOpen(false)}
-                className="block text-center bg-[var(--red)] text-white px-5 py-3 rounded-full font-bold hover:bg-[var(--red-dark)] transition-all"
+                className="block text-center bg-[var(--red)] text-white px-5 py-3 rounded-full font-bold"
               >
                 احجز موعدك
               </Link>

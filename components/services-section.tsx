@@ -36,8 +36,9 @@ const services = [
 export function ServicesSection() {
   return (
     <section id="services" className="py-20 lg:py-28 bg-[#FAFAF7]">
-      
-      <div className="container mx-auto px-4 lg:px-60">
+
+      {/* ✅ FIX: padding 16 mobile / 60 desktop */}
+      <div className="container mx-auto px-[16px] lg:px-[60px]">
 
         {/* Header */}
         <div className="text-center mb-14">
@@ -55,20 +56,21 @@ export function ServicesSection() {
           </p>
         </div>
 
-        {/* Services Grid */}
+        {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
           {services.map((service, index) => (
             <div
               key={index}
               className="group bg-white rounded-2xl p-8 border border-gray-200 hover:-translate-y-2.5 hover:shadow-xl hover:border-transparent transition-all duration-500 relative overflow-hidden"
             >
-              
+
               {/* Top Line */}
               <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--green)] to-[var(--red)] scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left transition-transform duration-600"></div>
-              
+
               <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6 ${
-                index % 2 === 0 
-                  ? 'bg-[var(--green)]/10 text-[var(--green)]' 
+                index % 2 === 0
+                  ? 'bg-[var(--green)]/10 text-[var(--green)]'
                   : 'bg-[var(--red)]/10 text-[var(--red)]'
               }`}>
                 <i className={`fa-solid ${service.icon}`}></i>
@@ -84,6 +86,7 @@ export function ServicesSection() {
 
             </div>
           ))}
+
         </div>
 
       </div>
