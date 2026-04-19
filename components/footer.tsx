@@ -107,7 +107,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <i className="fa-solid fa-phone text-[var(--green)]"></i>
-                <span className="text-sm text-white/40" dir="ltr">+966 55 XXX XXXX</span>
+                <span className="text-sm text-white/40" dir="ltr">+966 555160703</span>
               </li>
               <li className="flex items-center gap-3">
                 <i className="fa-solid fa-clock text-[var(--green)]"></i>
