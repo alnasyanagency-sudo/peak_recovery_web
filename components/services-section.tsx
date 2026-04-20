@@ -1,204 +1,94 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-
-const testimonials = [
+const services = [
   {
-    text: "من زمان أعاني من الإبهر، وجرّبت أشياء كثيرة بدون فايدة. بعد جلستين في التعافي والله حسّيت بفرق كبير. ناس محترفين والمكان نظيف ومرتّب.",
-    name: "محمد العتيبي",
-    location: "الرياض",
-    initials: "م ع",
-    color: "bg-[var(--green)]",
+    icon: "fa-bone",
+    title: "معالجة الإبهر بالحجامة",
+    description: "علاج فعّال لآلام الإبهر اللي تسبب ضيق بالصدر وصعوبة بالحركة. نستخدم تقنيات حجامة متخصصة تخفّف الألم وتحسّن الدورة الدموية."
   },
   {
-    text: "كنت خايفة من الحجامة بصراحة، بس الأخصائية طمّنتني وشرحت لي كل شي. الجلسة كانت مريحة جداً والمكان نظيف. أنصح كل أحد يجرّب عندهم.",
-    name: "نورة القحطاني",
-    location: "جدة",
-    initials: "ن ق",
-    color: "bg-[var(--red)]",
+    icon: "fa-person-walking",
+    title: "معالجة عرق النساء بالحجامة",
+    description: "الحجامة تساعد على تخفيف الضغط عن العصب الوركي وتقليل الالتهاب. كثير من عملاءنا حسّوا بتحسّن واضح من أول جلسة."
   },
   {
-    text: "القولون كان يتعبني بشكل يومي. من أحسن القرارات إني رحت عندهم. تحسّنت بشكل كبير ولله الحمد بعد ثلاث جلسات فقط.",
-    name: "فهد الشمري",
-    location: "الدمام",
-    initials: "ف ش",
-    color: "bg-[var(--gold)]",
+    icon: "fa-heart-pulse",
+    title: "معالجة القولون بالحجامة",
+    description: "الحجامة تساعد على تهدئة القولون العصبي وتخفيف الانتفاخ والتشنّجات، مع تحسّن ملحوظ في الهضم والراحة العامة."
   },
   {
-    text: "أعاني من الشقيقة سنوات، والحجامة عندهم خفّفت عليّ بشكل ما توقّعته. الأخصائي شرح لي كل شي وكان حريص على راحتي. تجربة ممتازة.",
-    name: "خالد الدوسري",
-    location: "بريدة",
-    initials: "خ د",
-    color: "bg-[var(--green-dark)]",
+    icon: "fa-head-side-mask",
+    title: "معالجة الجيوب الأنفية",
+    description: "الحجامة على نقاط محدّدة تساعد على تصريف الاحتقان وتخفيف أعراض التهاب الجيوب الأنفية بشكل طبيعي وآمن."
   },
   {
-    text: "رحت للقسم النسائي وكانت التجربة أكثر من رائعة. المكان نظيف والأخصائية شاطرة. حسّيت بتحسّن كبير بعد جلسة الجيوب الأنفية.",
-    name: "ريم المالكي",
-    location: "مكة المكرمة",
-    initials: "ر م",
-    color: "bg-[var(--red-dark)]",
+    icon: "fa-brain",
+    title: "معالجة الشقيقة",
+    description: "الحجامة تشتغل على تخفيف الضغط في الأوعية الدموية وتقليل حدّة نوبات الصداع النصفي وتكرارها بإذن الله."
   },
   {
-    text: "صديقي نصحني أروح لمركز التعافي لعلاج عرق النساء، وفعلاً من أول جلسة بديت أحسّ بتحسّن. المركز هذا من الأفضل.",
-    name: "عبدالله الحربي",
-    location: "المدينة المنورة",
-    initials: "ع ح",
-    color: "bg-gray-700",
-  },
-  {
-    text: "تجربتي مع التعافي كانت رائعة جداً. الموظفين محترمين ومتعاونين، والنتائج كانت أفضل من توقعاتي. أنصح الجميع بزيارتهم.",
-    name: "سارة الزهراني",
-    location: "الطائف",
-    initials: "س ز",
-    color: "bg-[var(--green)]",
-  },
-  {
-    text: "أول مرة أجرّب الحجامة وكانت التجربة مريحة جداً. شكراً لفريق التعافي على الاحترافية والاهتمام بالتفاصيل.",
-    name: "أحمد السبيعي",
-    location: "الخبر",
-    initials: "أ س",
-    color: "bg-[var(--red)]",
-  },
+    icon: "fa-spa",
+    title: "علاج الخلعة (رجالي ونسائي)",
+    description: "جلسات حجامة متخصصة للرجال والنساء تساعد على تهدئة الأعصاب واستعادة التوازن النفسي والجسدي من أثر الخلعة."
+  }
 ]
 
-export function TestimonialsSection() {
-  const trackRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const track = trackRef.current
-    if (!track) return
-
-    let isDown = false
-    let startX = 0
-    let scrollLeft = 0
-
-    // Mouse
-    const mouseDown = (e: MouseEvent) => {
-      isDown = true
-      track.classList.add("cursor-grabbing")
-      const rect = track.getBoundingClientRect()
-      startX = e.pageX - rect.left
-      scrollLeft = track.scrollLeft
-    }
-
-    const mouseUp = () => {
-      isDown = false
-      track.classList.remove("cursor-grabbing")
-    }
-
-    const mouseLeave = () => {
-      isDown = false
-      track.classList.remove("cursor-grabbing")
-    }
-
-    const mouseMove = (e: MouseEvent) => {
-      if (!isDown) return
-      e.preventDefault()
-      const rect = track.getBoundingClientRect()
-      const x = e.pageX - rect.left
-      const walk = x - startX
-      track.scrollLeft = scrollLeft - walk
-    }
-
-    // Touch
-    const touchStart = (e: TouchEvent) => {
-      isDown = true
-      const rect = track.getBoundingClientRect()
-      startX = e.touches[0].pageX - rect.left
-      scrollLeft = track.scrollLeft
-    }
-
-    const touchMove = (e: TouchEvent) => {
-      if (!isDown) return
-      const rect = track.getBoundingClientRect()
-      const x = e.touches[0].pageX - rect.left
-      const walk = x - startX
-      track.scrollLeft = scrollLeft - walk
-    }
-
-    const touchEnd = () => {
-      isDown = false
-    }
-
-    track.addEventListener("mousedown", mouseDown)
-    track.addEventListener("mouseup", mouseUp)
-    track.addEventListener("mouseleave", mouseLeave)
-    track.addEventListener("mousemove", mouseMove)
-
-    track.addEventListener("touchstart", touchStart)
-    track.addEventListener("touchmove", touchMove)
-    track.addEventListener("touchend", touchEnd)
-
-    return () => {
-      track.removeEventListener("mousedown", mouseDown)
-      track.removeEventListener("mouseup", mouseUp)
-      track.removeEventListener("mouseleave", mouseLeave)
-      track.removeEventListener("mousemove", mouseMove)
-
-      track.removeEventListener("touchstart", touchStart)
-      track.removeEventListener("touchmove", touchMove)
-      track.removeEventListener("touchend", touchEnd)
-    }
-  }, [])
-
+export function ServicesSection() {
   return (
-    <section id="testimonials" className="py-20 lg:py-28 bg-white overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section id="services" className="py-20 lg:py-28 bg-[#FAFAF7]">
+
+      {/* ✅ FIX: padding 16 mobile / 60 desktop */}
+      <div className="container mx-auto px-[16px] lg:px-[60px]">
+
+        {/* Header */}
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 text-sm font-bold text-[var(--green)] px-4 py-2 rounded-full bg-[var(--green)]/10 border border-[var(--green)]/20 mb-5">
-            <i className="fa-solid fa-quote-right text-xs"></i>
-            آراء العملاء
+            <i className="fa-solid fa-stethoscope text-xs"></i>
+            خدماتنا
           </div>
 
           <h2 className="text-3xl lg:text-4xl font-black text-gray-900 mb-4">
-            عملاؤنا يتكلمون
+            علاجات متخصصة بالحجامة
           </h2>
 
           <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
-            تجارب حقيقية من أشخاص جرّبوا خدماتنا ولمسوا الفرق بأنفسهم.
+            نقدّم مجموعة علاجات تستهدف مشاكل صحية محدّدة بأساليب مدروسة ونتائج ملموسة بإذن الله.
           </p>
         </div>
-      </div>
 
-      <div className="relative">
-        <div
-          ref={trackRef}
-          className="flex gap-6 overflow-x-auto px-4 cursor-grab active:cursor-grabbing select-none"
-        >
-          {testimonials.map((testimonial) => (
+        {/* Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+
+          {services.map((service, index) => (
             <div
-              key={testimonial.name}
-              className="w-[380px] bg-gray-50 border border-gray-200 rounded-2xl p-8 flex-shrink-0 hover:shadow-lg hover:border-[var(--green)]/20 hover:-translate-y-1 transition-all duration-300"
+              key={index}
+              className="group bg-white rounded-2xl p-8 border border-gray-200 hover:-translate-y-2.5 hover:shadow-xl hover:border-transparent transition-all duration-500 relative overflow-hidden"
             >
-              <div className="flex gap-1 mb-4 text-amber-500 text-sm">
-                {[...Array(5)].map((_, i) => (
-                  <i key={i} className="fa-solid fa-star"></i>
-                ))}
+
+              {/* Top Line */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--green)] to-[var(--red)] scale-x-0 origin-right group-hover:scale-x-100 group-hover:origin-left transition-transform duration-600"></div>
+
+              <div className={`w-16 h-16 rounded-2xl flex items-center justify-center text-xl mb-6 transition-all duration-500 group-hover:scale-110 group-hover:-rotate-6 ${
+                index % 2 === 0
+                  ? 'bg-[var(--green)]/10 text-[var(--green)]'
+                  : 'bg-[var(--red)]/10 text-[var(--red)]'
+              }`}>
+                <i className={`fa-solid ${service.icon}`}></i>
               </div>
 
-              <p className="text-gray-700 leading-relaxed mb-6">
-                {testimonial.text}
+              <h3 className="text-lg font-bold text-gray-900 mb-3">
+                {service.title}
+              </h3>
+
+              <p className="text-sm text-gray-500 leading-relaxed">
+                {service.description}
               </p>
 
-              <div className="flex items-center gap-3">
-                <div
-                  className={`w-12 h-12 rounded-full ${testimonial.color} flex items-center justify-center text-white font-bold text-sm`}
-                >
-                  {testimonial.initials}
-                </div>
-
-                <div>
-                  <div className="font-bold text-gray-900">
-                    {testimonial.name}
-                  </div>
-                  <div className="text-sm text-gray-500">
-                    {testimonial.location}
-                  </div>
-                </div>
-              </div>
             </div>
           ))}
+
         </div>
+
       </div>
     </section>
   )
