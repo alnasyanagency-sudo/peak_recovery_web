@@ -54,6 +54,7 @@ export function BookingSection() {
   return (
     <section id="booking" className="py-20 lg:py-28 bg-white">
 
+      {/* ✅ FIX: padding 16 mobile / 60 desktop */}
       <div className="container mx-auto px-[16px] lg:px-[60px] grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
         {/* Info */}
@@ -87,13 +88,20 @@ export function BookingSection() {
               )
 
               return info.href ? (
-                <a key={index} href={info.href} target={info.href.startsWith('http') ? '_blank' : undefined}
+                <a
+                  key={index}
+                  href={info.href}
+                  target={info.href.startsWith('http') ? '_blank' : undefined}
                   rel={info.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-transparent hover:bg-white hover:border-gray-200 hover:shadow-sm transition-all duration-400 cursor-pointer">
+                  className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl border border-transparent hover:bg-white hover:border-gray-200 hover:shadow-sm transition-all duration-400 cursor-pointer"
+                >
                   {content}
                 </a>
               ) : (
-                <div key={index} className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
+                <div
+                  key={index}
+                  className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl"
+                >
                   {content}
                 </div>
               )
@@ -104,6 +112,7 @@ export function BookingSection() {
         {/* Form */}
         <div className="bg-gray-50 border border-gray-200 rounded-3xl p-8 lg:p-10 relative overflow-hidden">
 
+          {/* Gradient Line */}
           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--green)] via-[var(--gold)] to-[var(--red)]"></div>
 
           <h3 className="text-xl font-extrabold text-gray-900 mb-7">
@@ -113,66 +122,80 @@ export function BookingSection() {
           <form onSubmit={handleSubmit} className="space-y-4">
 
             <div className="grid sm:grid-cols-2 gap-4">
-              
-              <input
-                type="text"
-                required
-                placeholder="أدخل اسمك"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full min-w-0 px-4 py-3.5 border-2 border-gray-200 rounded-xl bg-white outline-none"
-              />
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-gray-700">الاسم الكامل</label>
+                <input
+                  type="text"
+                  required
+                  placeholder="أدخل اسمك"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl bg-white focus:border-[var(--green)] focus:ring-4 focus:ring-[var(--green)]/10 outline-none transition-all"
+                />
+              </div>
 
-              <input
-                type="tel"
-                required
-                placeholder="05XXXXXXXX"
-                dir="ltr"
-                value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                className="w-full min-w-0 px-4 py-3.5 border-2 border-gray-200 rounded-xl bg-white text-left outline-none"
-              />
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-gray-700">رقم الجوال</label>
+                <input
+                  type="tel"
+                  required
+                  placeholder="05XXXXXXXX"
+                  dir="ltr"
+                  value={formData.phone}
+                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl bg-white text-right focus:border-[var(--green)] focus:ring-4 focus:ring-[var(--green)]/10 outline-none transition-all"
+                />
+              </div>
             </div>
 
             <div className="grid sm:grid-cols-2 gap-4">
-              
-              <select
-                required
-                value={formData.service}
-                onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                className="w-full min-w-0 px-4 py-3.5 border-2 border-gray-200 rounded-xl bg-white appearance-none outline-none"
-              >
-                <option value="">اختر الخدمة</option>
-                {services.map((service, index) => (
-                  <option key={index} value={service}>{service}</option>
-                ))}
-              </select>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-gray-700">الخدمة المطلوبة</label>
+                <select
+                  required
+                  value={formData.service}
+                  onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                  className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl bg-white focus:border-[var(--green)] focus:ring-4 focus:ring-[var(--green)]/10 outline-none transition-all"
+                >
+                  <option value="">اختر الخدمة</option>
+                  {services.map((service, index) => (
+                    <option key={index} value={service}>{service}</option>
+                  ))}
+                </select>
+              </div>
 
-              <select
-                required
-                value={formData.section}
-                onChange={(e) => setFormData({ ...formData, section: e.target.value })}
-                className="w-full min-w-0 px-4 py-3.5 border-2 border-gray-200 rounded-xl bg-white appearance-none outline-none"
-              >
-                <option value="">اختر القسم</option>
-                <option value="رجالي">رجالي</option>
-                <option value="نسائي">نسائي</option>
-              </select>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-gray-700">القسم</label>
+                <select
+                  required
+                  value={formData.section}
+                  onChange={(e) => setFormData({ ...formData, section: e.target.value })}
+                  className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl bg-white focus:border-[var(--green)] focus:ring-4 focus:ring-[var(--green)]/10 outline-none transition-all"
+                >
+                  <option value="">اختر القسم</option>
+                  <option value="رجالي">رجالي</option>
+                  <option value="نسائي">نسائي</option>
+                </select>
+              </div>
             </div>
 
-            <input
-              type="date"
-              required
-              value={formData.date}
-              onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-              className="w-full min-w-0 px-4 py-3.5 border-2 border-gray-200 rounded-xl bg-white outline-none"
-            />
+            <div className="space-y-2">
+              <label className="text-sm font-semibold text-gray-700">التاريخ المفضل</label>
+              <input
+                type="date"
+                required
+                value={formData.date}
+                onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                className="w-full px-4 py-3.5 border-2 border-gray-200 rounded-xl bg-white focus:border-[var(--green)] focus:ring-4 focus:ring-[var(--green)]/10 outline-none transition-all"
+              />
+            </div>
 
             <button
               type="submit"
-              className="w-full mt-6 bg-[var(--green)] text-white py-4 rounded-full font-bold text-lg"
+              className="w-full mt-6 bg-[var(--green)] text-white py-4 rounded-full font-bold text-lg shadow-lg hover:-translate-y-1 hover:shadow-xl transition-all duration-400 flex items-center justify-center gap-2"
             >
-              تأكيد الحجز
+              <i className="fa-solid fa-calendar-check"></i>
+              <span>تأكيد الحجز</span>
             </button>
 
           </form>
