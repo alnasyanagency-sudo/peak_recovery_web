@@ -72,39 +72,73 @@ export function TestimonialsSection() {
     let startX = 0
     let scrollLeft = 0
 
+    // ===== Mouse =====
     const mouseDown = (e: MouseEvent) => {
       isDown = true
       track.classList.add("cursor-grabbing")
-      startX = e.pageX - track.offsetLeft
+      const rect = track.getBoundingClientRect()
+      startX = e.pageX - rect.left
       scrollLeft = track.scrollLeft
     }
 
     const mouseLeave = () => {
       isDown = false
+      track.classList.remove("cursor-grabbing")
     }
 
     const mouseUp = () => {
       isDown = false
+      track.classList.remove("cursor-grabbing")
     }
 
     const mouseMove = (e: MouseEvent) => {
       if (!isDown) return
       e.preventDefault()
-      const x = e.pageX - track.offsetLeft
-      const walk = (x - startX) * 1.5
+      const rect = track.getBoundingClientRect()
+      const x = e.pageX - rect.left
+      const walk = x - startX
       track.scrollLeft = scrollLeft - walk
     }
 
+    // ===== Touch =====
+    const touchStart = (e: TouchEvent) => {
+      isDown = true
+      const rect = track.getBoundingClientRect()
+      startX = e.touches[0].pageX - rect.left
+      scrollLeft = track.scrollLeft
+    }
+
+    const touchMove = (e: TouchEvent) => {
+      if (!isDown) return
+      const rect = track.getBoundingClientRect()
+      const x = e.touches[0].pageX - rect.left
+      const walk = x - startX
+      track.scrollLeft = scrollLeft - walk
+    }
+
+    const touchEnd = () => {
+      isDown = false
+    }
+
+    // listeners
     track.addEventListener("mousedown", mouseDown)
     track.addEventListener("mouseleave", mouseLeave)
     track.addEventListener("mouseup", mouseUp)
     track.addEventListener("mousemove", mouseMove)
+
+    track.addEventListener("touchstart", touchStart)
+    track.addEventListener("touchmove", touchMove)
+    track.addEventListener("touchend", touchEnd)
 
     return () => {
       track.removeEventListener("mousedown", mouseDown)
       track.removeEventListener("mouseleave", mouseLeave)
       track.removeEventListener("mouseup", mouseUp)
       track.removeEventListener("mousemove", mouseMove)
+
+      track.removeEventListener("touchstart", touchStart)
+      track.removeEventListener("touchmove", touchMove)
+      track.removeEventListener("touchend", touchEnd)
     }
   }, [])
 
@@ -116,9 +150,11 @@ export function TestimonialsSection() {
             <i className="fa-solid fa-quote-right text-xs"></i>
             آراء العملاء
           </div>
+
           <h2 className="text-3xl lg:text-4xl font-black text-gray-900 mb-4">
             عملاؤنا يتكلمون
           </h2>
+
           <p className="text-gray-500 max-w-xl mx-auto leading-relaxed">
             تجارب حقيقية من أشخاص جرّبوا خدماتنا ولمسوا الفرق بأنفسهم.
           </p>
@@ -128,11 +164,11 @@ export function TestimonialsSection() {
       <div className="relative">
         <div
           ref={trackRef}
-          className="flex gap-6 overflow-x-auto cursor-grab active:cursor-grabbing select-none px-4"
+          className="flex gap-6 overflow-x-auto px-4 cursor-grab active:cursor-grabbing select-none scroll-smooth"
         >
-          {testimonials.map((testimonial, index) => (
+          {testimonials.map((testimonial) => (
             <div
-              key={index}
+              key={testimonial.name}
               className="w-[380px] bg-gray-50 border border-gray-200 rounded-2xl p-8 flex-shrink-0 hover:shadow-lg hover:border-[var(--green)]/20 hover:-translate-y-1 transition-all duration-300"
             >
               <div className="flex gap-1 mb-4 text-amber-500 text-sm">
@@ -151,6 +187,7 @@ export function TestimonialsSection() {
                 >
                   {testimonial.initials}
                 </div>
+
                 <div>
                   <div className="font-bold text-gray-900">
                     {testimonial.name}
