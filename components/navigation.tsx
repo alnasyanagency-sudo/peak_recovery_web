@@ -12,7 +12,7 @@ const navLinks = [
   { href: "#about", label: "من نحن" },
   { href: "#services", label: "خدماتنا" },
   { href: "#gallery", label: "معرض الصور" },
-  { href: "#testimonials", label: "آراء العملاء" },
+  // { href: "#testimonials", label: "آراء العملاء" },
 ]
 
 export function Navigation() {
