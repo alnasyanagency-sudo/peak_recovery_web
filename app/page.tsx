@@ -2,9 +2,9 @@ import { Navigation } from "@/components/navigation"
 import { HeroSection } from "@/components/hero-section"
 import { TrustBar } from "@/components/trust-bar"
 import { AboutSection } from "@/components/about-section"
-import { ServicesSection } from "@/components/services-section"
+// import { ServicesSection } from "@/components/services-section"
 import { WhyUsSection } from "@/components/why-us-section"
-import { TestimonialsSection } from "@/components/testimonials-section"
+// import { TestimonialsSection } from "@/components/testimonials-section"
 import { GallerySection } from "@/components/gallery-section"
 import { BookingSection } from "@/components/booking-section"
 import { MapSection } from "@/components/map-section"
@@ -18,9 +18,9 @@ export default function Home() {
       <HeroSection />
       <TrustBar />
       <AboutSection />
-      <ServicesSection />
+      {/* <ServicesSection /> */}
       <WhyUsSection />
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
       <GallerySection />
       <BookingSection />
       <MapSection />
