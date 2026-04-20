@@ -89,7 +89,6 @@ export function TestimonialsSection() {
   return (
     <section id="testimonials" className="py-20 lg:py-28 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
-        {/* Header */}
         <div className="text-center mb-14">
           <div className="inline-flex items-center gap-2 text-sm font-bold text-[var(--green)] px-4 py-2 rounded-full bg-[var(--green)]/10 border border-[var(--green)]/20 mb-5">
             <i className="fa-solid fa-quote-right text-xs"></i>
@@ -104,7 +103,6 @@ export function TestimonialsSection() {
         </div>
       </div>
 
-      {/* Scrolling Testimonials */}
       <div className="relative">
         <div 
           ref={trackRef}
@@ -116,17 +114,14 @@ export function TestimonialsSection() {
               key={index}
               className="w-[380px] bg-gray-50 border border-gray-200 rounded-2xl p-8 flex-shrink-0 hover:shadow-lg hover:border-[var(--green)]/20 hover:-translate-y-1 transition-all duration-400"
             >
-              {/* Stars */}
               <div className="flex gap-1 mb-4 text-amber-500 text-sm">
                 {[...Array(5)].map((_, i) => (
                   <i key={i} className="fa-solid fa-star"></i>
                 ))}
               </div>
 
-              {/* Text */}
               <p className="text-gray-700 leading-relaxed mb-6">{testimonial.text}</p>
 
-              {/* Author */}
               <div className="flex items-center gap-3">
                 <div className={`w-12 h-12 rounded-full ${testimonial.color} flex items-center justify-center text-white font-bold text-sm`}>
                   {testimonial.initials}
