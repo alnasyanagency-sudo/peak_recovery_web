@@ -72,7 +72,7 @@ export function TestimonialsSection() {
     let startX = 0
     let scrollLeft = 0
 
-    // ===== Mouse =====
+    // Mouse
     const mouseDown = (e: MouseEvent) => {
       isDown = true
       track.classList.add("cursor-grabbing")
@@ -81,12 +81,12 @@ export function TestimonialsSection() {
       scrollLeft = track.scrollLeft
     }
 
-    const mouseLeave = () => {
+    const mouseUp = () => {
       isDown = false
       track.classList.remove("cursor-grabbing")
     }
 
-    const mouseUp = () => {
+    const mouseLeave = () => {
       isDown = false
       track.classList.remove("cursor-grabbing")
     }
@@ -100,7 +100,7 @@ export function TestimonialsSection() {
       track.scrollLeft = scrollLeft - walk
     }
 
-    // ===== Touch =====
+    // Touch
     const touchStart = (e: TouchEvent) => {
       isDown = true
       const rect = track.getBoundingClientRect()
@@ -120,10 +120,9 @@ export function TestimonialsSection() {
       isDown = false
     }
 
-    // listeners
     track.addEventListener("mousedown", mouseDown)
-    track.addEventListener("mouseleave", mouseLeave)
     track.addEventListener("mouseup", mouseUp)
+    track.addEventListener("mouseleave", mouseLeave)
     track.addEventListener("mousemove", mouseMove)
 
     track.addEventListener("touchstart", touchStart)
@@ -132,8 +131,8 @@ export function TestimonialsSection() {
 
     return () => {
       track.removeEventListener("mousedown", mouseDown)
-      track.removeEventListener("mouseleave", mouseLeave)
       track.removeEventListener("mouseup", mouseUp)
+      track.removeEventListener("mouseleave", mouseLeave)
       track.removeEventListener("mousemove", mouseMove)
 
       track.removeEventListener("touchstart", touchStart)
@@ -164,7 +163,7 @@ export function TestimonialsSection() {
       <div className="relative">
         <div
           ref={trackRef}
-          className="flex gap-6 overflow-x-auto px-4 cursor-grab active:cursor-grabbing select-none scroll-smooth"
+          className="flex gap-6 overflow-x-auto px-4 cursor-grab active:cursor-grabbing select-none"
         >
           {testimonials.map((testimonial) => (
             <div
