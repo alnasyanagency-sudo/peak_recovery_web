@@ -10,9 +10,23 @@ const cairo = Cairo({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.qimataltaeafi.com/'),
+
   title: 'مركز قمة التعافي للحجامة | علاج طبيعي متخصص',
   description: 'مركز متخصص في الحجامة العلاجية بأعلى معايير الجودة والتعقيم. أقسام رجالية ونسائية منفصلة مع فريق متخصص وخبرة تتجاوز 10 سنوات.',
-  keywords: ['حجامة', 'علاج طبيعي', 'التعافي', 'حجامة علاجية', 'مركز حجامة'],
+
+  keywords: [
+    'حجامة',
+    'علاج طبيعي',
+    'التعافي',
+    'حجامة علاجية',
+    'مركز حجامة'
+  ],
+
+  verification: {
+    google: 'IDyNEC5oxLLhqNlVoFZE4VCWQ-7ZuHNVOGbEYmR0taY',
+  },
+
   icons: {
     icon: '/favicon.png',
   },
