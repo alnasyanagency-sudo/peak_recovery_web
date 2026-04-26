@@ -136,7 +136,7 @@ export function Footer() {
             {/* Tabby */}
             <div className="flex flex-col items-center gap-1">
               <img
-                src="https://cdn.simpleicons.org/tabby/00C3A5"
+                src="/taby.svg"
                 alt="تابي"
                 className="h-8 w-auto"
               />
@@ -146,7 +146,7 @@ export function Footer() {
             {/* Tamara */}
             <div className="flex flex-col items-center gap-1">
               <img
-                src="https://cdn.simpleicons.org/tamara/00C3A5"
+                src="/tamara.svg"
                 alt="تمارا"
                 className="h-8 w-auto"
               />
