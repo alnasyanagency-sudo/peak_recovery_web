@@ -33,13 +33,14 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer className="bg-gradient-to-br from-[#0b1a10] via-[#142d1a] to-[#0f2016] text-white/60 pt-20 relative overflow-hidden">
-      
+
       {/* Top Line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--green)] to-transparent"></div>
 
       <div className="container mx-auto px-4 lg:px-60">
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-14 pb-12 border-b border-white/10">
-          
+
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
@@ -49,6 +50,7 @@ export function Footer() {
             <p className="text-sm leading-relaxed text-white/40 mb-6">
               مركز متخصص في الحجامة العلاجية بأعلى معايير الجودة والتعقيم. أقسام رجالية ونسائية منفصلة مع فريق متخصص .
             </p>
+
             <div className="flex gap-2.5">
               {socialLinks.map((social, index) => (
                 <Link
@@ -68,7 +70,7 @@ export function Footer() {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <Link 
+                  <Link
                     href={link.href}
                     className="text-sm font-medium text-white/40 hover:text-white hover:pr-1 transition-all duration-300 flex items-center gap-2"
                   >
@@ -86,7 +88,7 @@ export function Footer() {
             <ul className="space-y-3">
               {servicesLinks.map((service, index) => (
                 <li key={index}>
-                  <Link 
+                  <Link
                     href="#services"
                     className="text-sm font-medium text-white/40 hover:text-white hover:pr-1 transition-all duration-300 flex items-center gap-2"
                   >
@@ -104,32 +106,53 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <i className="fa-solid fa-location-dot text-[var(--green)] mt-1"></i>
-                <span className="text-sm text-white/40">شارع الملك خالد بن عبد العزيز، حي الإسكان، بريدة 52387</span>
+                <span className="text-sm text-white/40">
+                  شارع الملك خالد بن عبد العزيز، حي الإسكان، بريدة 52387
+                </span>
               </li>
               <li className="flex items-center gap-3">
                 <i className="fa-solid fa-phone text-[var(--green)]"></i>
-                <span className="text-sm text-white/40" dir="ltr">+966 555160703</span>
+                <span className="text-sm text-white/40" dir="ltr">
+                  +966 555160703
+                </span>
               </li>
               <li className="flex items-center gap-3">
                 <i className="fa-solid fa-clock text-[var(--green)]"></i>
-                <span className="text-sm text-white/40">9 ص – 12 ظ (صباحًا) | 4 م – 11 م (مساءً) | الجمعة: 4 م – 9 م</span>
+                <span className="text-sm text-white/40">
+                  9 ص – 12 ظ (صباحًا) | 4 م – 11 م (مساءً) | الجمعة: 4 م – 9 م
+                </span>
               </li>
             </ul>
           </div>
 
         </div>
 
-        {/* Payment Methods */}
-        <div className="flex flex-col items-center gap-4 py-6 border-b border-white/10">
+        {/* Payment Methods (Tabby & Tamara only) */}
+        <div className="flex flex-col items-center gap-3 py-6 border-b border-white/10">
           <span className="text-sm text-white/40">وسائل الدفع المتاحة</span>
 
-          <div className="flex items-center gap-4 flex-wrap justify-center">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" className="h-6 opacity-70 hover:opacity-100 transition" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-6 opacity-70 hover:opacity-100 transition" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Mada_Logo.svg" alt="Mada" className="h-6 opacity-70 hover:opacity-100 transition" />
-            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg" alt="Apple Pay" className="h-6 opacity-70 hover:opacity-100 transition" />
-            <img src="https://seeklogo.com/images/T/tabby-logo-4C8E3E2F9C-seeklogo.com.png" alt="Tabby" className="h-6 opacity-70 hover:opacity-100 transition" />
-            <img src="https://seeklogo.com/images/T/tamara-logo-8E0F4F9F1F-seeklogo.com.png" alt="Tamara" className="h-6 opacity-70 hover:opacity-100 transition" />
+          <div className="flex items-center gap-10 flex-wrap justify-center">
+
+            {/* Tabby */}
+            <div className="flex flex-col items-center gap-1">
+              <img
+                src="https://seeklogo.com/images/T/tabby-logo-4C8E3E2F9C-seeklogo.com.png"
+                alt="تابي"
+                className="h-8 opacity-80 hover:opacity-100 transition"
+              />
+              <span className="text-xs text-white/40">تابي</span>
+            </div>
+
+            {/* Tamara */}
+            <div className="flex flex-col items-center gap-1">
+              <img
+                src="https://seeklogo.com/images/T/tamara-logo-8E0F4F9F1F-seeklogo.com.png"
+                alt="تمارا"
+                className="h-8 opacity-80 hover:opacity-100 transition"
+              />
+              <span className="text-xs text-white/40">تمارا</span>
+            </div>
+
           </div>
         </div>
 
