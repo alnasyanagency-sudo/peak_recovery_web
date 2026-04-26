@@ -135,20 +135,24 @@ export function Footer() {
 
             {/* Tabby */}
             <div className="flex flex-col items-center gap-1">
-              <img
+              <Image
                 src="/taby.svg"
                 alt="تابي"
-                className="h-8 w-auto"
+                width={60}
+                height={30}
+                className="invert"
               />
               <span className="text-xs text-white/40">تابي</span>
             </div>
 
             {/* Tamara */}
             <div className="flex flex-col items-center gap-1">
-              <img
+              <Image
                 src="/tamara.svg"
                 alt="تمارا"
-                className="h-8 w-auto"
+                width={60}
+                height={30}
+                className="invert"
               />
               <span className="text-xs text-white/40">تمارا</span>
             </div>
