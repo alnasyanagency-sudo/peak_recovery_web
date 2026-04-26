@@ -2,34 +2,29 @@
 
 const reasons = [
   {
-    icon: "fa-medal",
-    title: "خبرة عالية",
-    description: "أكثر من ١٠ سنوات في الحجامة العلاجية، وفريق يتابع أحدث الأساليب والتقنيات."
-  },
-  {
     icon: "fa-shield-virus",
     title: "أدوات معقّمة",
-    description: "أدوات طبية ذات استخدام واحد فقط، مع التزام كامل بأعلى معايير التعقيم والسلامة."
+    description: "استخدام أدوات طبية معقمة ذات استخدام واحد وفق أعلى معايير السلامة."
   },
   {
-    icon: "fa-spa",
+    icon: "fa-user-shield",
     title: "راحة وخصوصية",
-    description: "بيئة هادئة بأقسام منفصلة للرجال والنساء، توفّر لك خصوصية تامة."
+    description: "بيئة مريحة بأقسام منفصلة تضمن لك الخصوصية التامة أثناء الجلسة."
   },
   {
-    icon: "fa-chart-line",
-    title: "نتائج فعّالة",
-    description: "٩٨٪ من عملاءنا لاحظوا تحسّن واضح، والنتائج تتكلم عن نفسها."
+    icon: "fa-fire",
+    title: "حجامة مساجية بالنار",
+    description: "تقنيات متقدمة تجمع بين المساج والحجامة بالنار لتحفيز العضلات وتخفيف الألم."
   },
   {
     icon: "fa-heart-pulse",
     title: "أنواع حجامة متنوعة",
-    description: "نقدّم الحجامة التنشيطية، العلاجية، وحجامة السنة وفق أفضل الممارسات."
+    description: "حجامة تنشيطية، علاجية، وحجامة السنة وفق أفضل الممارسات."
   },
   {
     icon: "fa-droplet",
     title: "تنشيط الدورة الدموية",
-    description: "تحفيز تدفق الدم بشكل صحي يساعد على تحسين النشاط العام للجسم."
+    description: "تحفيز تدفق الدم بشكل صحي يساعد على تحسين نشاط الجسم."
   },
   {
     icon: "fa-biohazard",
@@ -39,27 +34,12 @@ const reasons = [
   {
     icon: "fa-user-doctor",
     title: "علاج احترافي متكامل",
-    description: "نساعد في التعامل مع مختلف الحالات الصحية بأسلوب مهني وآمن."
+    description: "نساعد في التعامل مع الحالات المختلفة بأسلوب مهني وآمن."
   },
   {
-    icon: "fa-user",
-    title: "بدون حلاقة",
-    description: "إمكانية عمل الحجامة بدون حلاقة الشعر للرجال والنساء بكل راحة."
-  },
-  {
-    icon: "fa-hand-holding-heart",
-    title: "مساج علاجي قبل الحجامة",
-    description: "جلسات مساج تمهيدية تساعد على تجهيز الجسم وتحقيق أفضل النتائج."
-  },
-  {
-    icon: "fa-fire",
-    title: "حجامة مساجية بالنار",
-    description: "تقنيات متقدمة بالحجامة النارية لتحفيز العضلات وتخفيف الآلام."
-  },
-  {
-    icon: "fa-credit-card",
-    title: "خيارات دفع مرنة",
-    description: "نوفر الدفع عبر تابي وتمارا لتجربة مريحة وسهلة."
+    icon: "fa-hand-holding-dollar",
+    title: "دفع مرن",
+    description: "إمكانية الدفع عبر تابي وتمارا لتجربة مريحة وسهلة."
   }
 ]
 
@@ -70,7 +50,6 @@ export function WhyUsSection() {
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_600px_500px_at_5%_90%,rgba(219,31,43,0.08),transparent),radial-gradient(ellipse_400px_350px_at_95%_10%,rgba(196,162,101,0.06),transparent)]"></div>
 
-      {/* Container */}
       <div className="container mx-auto px-[16px] lg:px-[60px] relative z-10">
 
         {/* Header */}
@@ -85,7 +64,7 @@ export function WhyUsSection() {
           </h2>
 
           <p className="text-white/50 max-w-xl mx-auto leading-relaxed">
-            لأننا نهتم بكل تفصيلة من لحظة دخولك لحد ما تطلع وأنت مرتاح ومطمئن.
+            خدمات احترافية وتجربة مريحة من أول لحظة حتى نهاية الجلسة.
           </p>
         </div>
 
