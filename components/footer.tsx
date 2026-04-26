@@ -33,6 +33,7 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer className="bg-gradient-to-br from-[#0b1a10] via-[#142d1a] to-[#0f2016] text-white/60 pt-20 relative overflow-hidden">
+      
       {/* Top Line */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[var(--green)] to-transparent"></div>
 
@@ -118,10 +119,25 @@ export function Footer() {
 
         </div>
 
+        {/* Payment Methods */}
+        <div className="flex flex-col items-center gap-4 py-6 border-b border-white/10">
+          <span className="text-sm text-white/40">وسائل الدفع المتاحة</span>
+
+          <div className="flex items-center gap-4 flex-wrap justify-center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" className="h-6 opacity-70 hover:opacity-100 transition" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" className="h-6 opacity-70 hover:opacity-100 transition" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Mada_Logo.svg" alt="Mada" className="h-6 opacity-70 hover:opacity-100 transition" />
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Apple_Pay_logo.svg" alt="Apple Pay" className="h-6 opacity-70 hover:opacity-100 transition" />
+            <img src="https://seeklogo.com/images/T/tabby-logo-4C8E3E2F9C-seeklogo.com.png" alt="Tabby" className="h-6 opacity-70 hover:opacity-100 transition" />
+            <img src="https://seeklogo.com/images/T/tamara-logo-8E0F4F9F1F-seeklogo.com.png" alt="Tamara" className="h-6 opacity-70 hover:opacity-100 transition" />
+          </div>
+        </div>
+
         {/* Bottom */}
         <div className="py-6 text-center text-sm text-white/25 font-medium">
           جميع الحقوق محفوظة © {new Date().getFullYear()} مركز قمة التعافي للحجامة
         </div>
+
       </div>
     </footer>
   )
