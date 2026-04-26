@@ -20,7 +20,7 @@ const contactInfo = [
   {
     icon: "fa-clock",
     label: "ساعات العمل",
-    value: "9 ص – 12 ظ (صباحًا) | 4 م – 11 م (مساءً) | الجمعة: 4 م – 9 م",
+    value: "⏰ الدوام: ‎9 ص – 12 ظ (صباحًا)‎ | ‎4 م – 11 م (مساءً)‎ | ‎الجمعة: 4 م – 9 م‎",
     href: "",
     color: "bg-[var(--red)]"
   }
@@ -54,10 +54,8 @@ export function BookingSection() {
   return (
     <section id="booking" className="py-20 lg:py-28 bg-white">
 
-      {/* ✅ FIX: padding 16 mobile / 60 desktop */}
       <div className="container mx-auto px-[16px] lg:px-[60px] grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
-        {/* Info */}
         <div>
           <div className="inline-flex items-center gap-2 text-sm font-bold text-[var(--green)] px-4 py-2 rounded-full bg-[var(--green)]/10 border border-[var(--green)]/20 mb-5">
             <i className="fa-solid fa-calendar-check text-xs"></i>
@@ -82,7 +80,12 @@ export function BookingSection() {
 
                   <div>
                     <div className="text-xs text-gray-400 font-medium">{info.label}</div>
-                    <div className="text-sm font-semibold text-gray-700" dir="ltr">{info.value}</div>
+                    <div
+                      className="text-sm font-semibold text-gray-700"
+                      dir={info.label === "اتصل بنا" || info.label === "واتساب" ? "ltr" : "rtl"}
+                    >
+                      {info.value}
+                    </div>
                   </div>
                 </>
               )
@@ -109,10 +112,8 @@ export function BookingSection() {
           </div>
         </div>
 
-        {/* Form */}
         <div className="bg-gray-50 border border-gray-200 rounded-3xl p-8 lg:p-10 relative overflow-hidden">
 
-          {/* Gradient Line */}
           <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--green)] via-[var(--gold)] to-[var(--red)]"></div>
 
           <h3 className="text-xl font-extrabold text-gray-900 mb-7">

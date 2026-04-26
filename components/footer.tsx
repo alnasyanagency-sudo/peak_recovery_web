@@ -42,8 +42,8 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-3 mb-4">
-              <Image src={LOGO_URL} alt="التعافي للحجامة" width={50} height={50} />
-              <span className="text-lg font-extrabold text-white">التعافي للحجامة</span>
+              <Image src={LOGO_URL} alt="مركز قمة التعافي" width={50} height={50} />
+              <span className="text-lg font-extrabold text-white">مركز قمة التعافي</span>
             </div>
             <p className="text-sm leading-relaxed text-white/40 mb-6">
               مركز متخصص في الحجامة العلاجية بأعلى معايير الجودة والتعقيم. أقسام رجالية ونسائية منفصلة مع فريق متخصص .
@@ -111,7 +111,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <i className="fa-solid fa-clock text-[var(--green)]"></i>
-                <span className="text-sm text-white/40">السبت - الخميس: ٤م - ١٢ص</span>
+                <span className="text-sm text-white/40">9 ص – 12 ظ (صباحًا) | 4 م – 11 م (مساءً) | الجمعة: 4 م – 9 م</span>
               </li>
             </ul>
           </div>

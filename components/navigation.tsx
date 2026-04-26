@@ -46,7 +46,7 @@ export function Navigation() {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="hidden sm:block font-bold text-[var(--gold)]">التعافي للحجامة</span>
+            <span className="hidden sm:block font-bold text-[var(--gold)]">مركز قمة التعافي</span>
             <i className="fa-solid fa-leaf text-[var(--gold)]"></i>
           </div>
 
@@ -77,7 +77,7 @@ export function Navigation() {
               "text-base font-extrabold transition-colors duration-400 whitespace-nowrap",
               isScrolled ? "text-[var(--green-dark)]" : "text-white"
             )}>
-              التعافي للحجامة
+              مركز قمة التعافي
             </span>
           </Link>
 
