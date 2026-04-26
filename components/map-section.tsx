@@ -10,7 +10,7 @@ const locationInfo = [
   {
     icon: "fa-clock",
     title: "أوقات العمل",
-    description: "السبت - الخميس: ٤:٠٠ م - ١٢:٠٠ ص\nالجمعة: مغلق",
+    description: "9 ص – 12 ظ (صباحًا)\n4 م – 11 م (مساءً)\nالجمعة: 4 م – 9 م",
     color: "bg-[var(--red)]"
   },
   {

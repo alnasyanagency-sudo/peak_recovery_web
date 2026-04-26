@@ -20,17 +20,57 @@ const reasons = [
     icon: "fa-chart-line",
     title: "نتائج فعّالة",
     description: "٩٨٪ من عملاءنا لاحظوا تحسّن واضح، والنتائج تتكلم عن نفسها."
+  },
+  {
+    icon: "fa-heart-pulse",
+    title: "أنواع حجامة متنوعة",
+    description: "نقدّم الحجامة التنشيطية، العلاجية، وحجامة السنة وفق أفضل الممارسات."
+  },
+  {
+    icon: "fa-droplet",
+    title: "تنشيط الدورة الدموية",
+    description: "تحفيز تدفق الدم بشكل صحي يساعد على تحسين النشاط العام للجسم."
+  },
+  {
+    icon: "fa-biohazard",
+    title: "تنقية الجسم من السموم",
+    description: "المساعدة في تخليص الجسم من السموم وتعزيز وظائفه الحيوية."
+  },
+  {
+    icon: "fa-user-doctor",
+    title: "علاج احترافي متكامل",
+    description: "نساعد في التعامل مع مختلف الحالات الصحية بأسلوب مهني وآمن."
+  },
+  {
+    icon: "fa-user",
+    title: "بدون حلاقة",
+    description: "إمكانية عمل الحجامة بدون حلاقة الشعر للرجال والنساء بكل راحة."
+  },
+  {
+    icon: "fa-hand-holding-heart",
+    title: "مساج علاجي قبل الحجامة",
+    description: "جلسات مساج تمهيدية تساعد على تجهيز الجسم وتحقيق أفضل النتائج."
+  },
+  {
+    icon: "fa-fire",
+    title: "حجامة مساجية بالنار",
+    description: "تقنيات متقدمة بالحجامة النارية لتحفيز العضلات وتخفيف الآلام."
+  },
+  {
+    icon: "fa-credit-card",
+    title: "خيارات دفع مرنة",
+    description: "نوفر الدفع عبر تابي وتمارا لتجربة مريحة وسهلة."
   }
 ]
 
 export function WhyUsSection() {
   return (
-    <section className="py-20 lg:py-28 bg-gradient-to-br from-[#102a16] via-[#1e5427] via-35% via-[#2D7339] via-65% to-[#163520] relative overflow-hidden">
+    <section className="py-20 lg:py-28 bg-gradient-to-br from-[#102a16] via-[#1e5427] via-[35%] via-[#2D7339] via-[65%] to-[#163520] relative overflow-hidden">
 
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_600px_500px_at_5%_90%,rgba(219,31,43,0.08),transparent),radial-gradient(ellipse_400px_350px_at_95%_10%,rgba(196,162,101,0.06),transparent)]"></div>
 
-      {/* ✅ FIX: padding 16 mobile / 60 desktop */}
+      {/* Container */}
       <div className="container mx-auto px-[16px] lg:px-[60px] relative z-10">
 
         {/* Header */}
@@ -41,7 +81,7 @@ export function WhyUsSection() {
           </div>
 
           <h2 className="text-3xl lg:text-4xl font-black text-white mb-4">
-            ليش تختار التعافي؟
+            ليش تختار مركز قمة التعافي؟
           </h2>
 
           <p className="text-white/50 max-w-xl mx-auto leading-relaxed">
@@ -51,7 +91,6 @@ export function WhyUsSection() {
 
         {/* Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-
           {reasons.map((reason, index) => (
             <div
               key={index}
@@ -72,7 +111,6 @@ export function WhyUsSection() {
 
             </div>
           ))}
-
         </div>
 
       </div>
