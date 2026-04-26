@@ -41,7 +41,7 @@ export function Navigation() {
 
             <span className="hidden md:flex items-center gap-2">
               <i className="fa-solid fa-clock text-[var(--gold)]"></i>
-              <span>السبت - الخميس: ٤م - ١٢ص</span>
+              <span>9 ص – 12 ظ (صباحًا) | 4 م – 11 م (مساءً) | الجمعة: 4 م – 9 م</span>
             </span>
           </div>
 

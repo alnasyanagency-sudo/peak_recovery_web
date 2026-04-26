@@ -16,7 +16,7 @@ export function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src={IMAGES.building}
-          alt="مركز التعافي"
+          alt="مركز قمة التعافي"
           fill
           className="object-cover object-center"
           priority
