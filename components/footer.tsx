@@ -119,7 +119,7 @@ export function Footer() {
               <li className="flex items-center gap-3">
                 <i className="fa-solid fa-clock text-[var(--green)]"></i>
                 <span className="text-sm text-white/40">
-                  9 ص – 12 ظ (صباحًا) | 4 م – 11 م (مساءً) | الجمعة: 4 م – 9 م
+                  9 ص – 12 ظ | 4 م – 11 م | الجمعة: 4 م – 9 م
                 </span>
               </li>
             </ul>
@@ -127,7 +127,7 @@ export function Footer() {
 
         </div>
 
-        {/* Payment Methods (Tabby & Tamara only) */}
+        {/* Payment Methods */}
         <div className="flex flex-col items-center gap-3 py-6 border-b border-white/10">
           <span className="text-sm text-white/40">وسائل الدفع المتاحة</span>
 
@@ -136,9 +136,9 @@ export function Footer() {
             {/* Tabby */}
             <div className="flex flex-col items-center gap-1">
               <img
-                src="https://seeklogo.com/images/T/tabby-logo-4C8E3E2F9C-seeklogo.com.png"
+                src="https://cdn.simpleicons.org/tabby/00C3A5"
                 alt="تابي"
-                className="h-8 opacity-80 hover:opacity-100 transition"
+                className="h-8 w-auto"
               />
               <span className="text-xs text-white/40">تابي</span>
             </div>
@@ -146,9 +146,9 @@ export function Footer() {
             {/* Tamara */}
             <div className="flex flex-col items-center gap-1">
               <img
-                src="https://seeklogo.com/images/T/tamara-logo-8E0F4F9F1F-seeklogo.com.png"
+                src="https://cdn.simpleicons.org/tamara/00C3A5"
                 alt="تمارا"
-                className="h-8 opacity-80 hover:opacity-100 transition"
+                className="h-8 w-auto"
               />
               <span className="text-xs text-white/40">تمارا</span>
             </div>
