@@ -56,7 +56,7 @@ export function Footer() {
                 <Link
                   key={index}
                   href={social.href}
-                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:bg-[var(--green)] hover:border-[var(--green)] hover:text-white hover:-translate-y-1 transition-all duration-400"
+                  className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/40 hover:bg-[var(--green)] hover:border-[var(--green)] hover:text-white hover:-translate-y-1 transition-all duration-300"
                 >
                   <i className={`fa-brands ${social.icon}`}></i>
                 </Link>
@@ -128,33 +128,31 @@ export function Footer() {
         </div>
 
         {/* Payment Methods */}
-        <div className="flex flex-col items-center gap-3 py-6 border-b border-white/10">
+        <div className="flex flex-col items-center gap-4 py-6 border-b border-white/10">
           <span className="text-sm text-white/40">وسائل الدفع المتاحة</span>
 
-          <div className="flex items-center gap-10 flex-wrap justify-center">
+          <div className="flex items-center gap-12 flex-wrap justify-center">
 
             {/* Tabby */}
-            <div className="flex flex-col items-center gap-1">
+            <div className="flex flex-col items-center gap-2 hover:scale-105 transition">
               <Image
-                src="/taby.svg"
+                src="/tabby.svg"
                 alt="تابي"
-                width={60}
-                height={30}
-                className="invert"
+                width={70}
+                height={35}
               />
-              <span className="text-xs text-white/40">تابي</span>
+              <span className="text-xs text-white/50">تابي</span>
             </div>
 
             {/* Tamara */}
-            <div className="flex flex-col items-center gap-1">
+            <div className="flex flex-col items-center gap-2 hover:scale-105 transition">
               <Image
                 src="/tamara.svg"
                 alt="تمارا"
-                width={60}
-                height={30}
-                className="invert"
+                width={70}
+                height={35}
               />
-              <span className="text-xs text-white/40">تمارا</span>
+              <span className="text-xs text-white/50">تمارا</span>
             </div>
 
           </div>
