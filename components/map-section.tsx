@@ -25,7 +25,6 @@ export function MapSection() {
   return (
     <section className="py-20 lg:py-28 bg-[#FAFAF7]">
 
-      {/* ✅ FIX: padding 16 mobile / 60 desktop */}
       <div className="container mx-auto px-[16px] lg:px-[60px] grid lg:grid-cols-2 gap-10 items-stretch">
 
         {/* Info */}
@@ -52,7 +51,7 @@ export function MapSection() {
         {/* Map */}
         <div className="rounded-2xl overflow-hidden shadow-lg min-h-[420px]">
           <iframe
-            src="https://www.google.com/maps?q=26.3946829,43.9494143&hl=ar&z=17&output=embed"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3573.8918054214287!2d43.9494143!3d26.394682900000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x157f5985ffdd80d3%3A0x5b48768c9a27fbe8!2z2YXYsdmD2LIg2YLZhdipINin2YTYqti52KfZgdmKINmE2YTYrdis2KfZhdip!5e0!3m2!1sar!2som!4v1777274398036!5m2!1sar!2som"
             width="100%"
             height="100%"
             style={{ border: 0, minHeight: '420px' }}

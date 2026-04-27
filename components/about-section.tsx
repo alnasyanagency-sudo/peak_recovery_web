@@ -9,10 +9,7 @@ const IMAGES = {
 }
 
 const features = [
-
-  { icon: "fa-user-doctor", text: "فريق متخصص ومدرّب" },
   { icon: "fa-pump-medical", text: "أدوات استخدام واحد" },
-  { icon: "fa-lock", text: "خصوصية تامة" },
   { icon: "fa-award", text: "نتائج ملموسة بإذن الله" },
   { icon: "fa-user-nurse", text: "عمل حجامة بدون حلاقة الشعر للرجال والنساء" },
   { icon: "fa-spa", text: "جلسات مساج علاجي قبل جلسة الحجامة" }
@@ -22,7 +19,6 @@ export function AboutSection() {
   return (
     <section id="about" className="py-4 lg:py-[60px] bg-white">
 
-      {/* ✅ Padding Fix: 16 mobile / 60 desktop */}
       <div className="container mx-auto px-[16px] lg:px-[60px] grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
         {/* Gallery */}
@@ -83,17 +79,38 @@ export function AboutSection() {
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {features.map((feature, index) => (
-              <div 
-                key={index}
-                className="flex items-center gap-4 p-4 rounded-xl bg-gray-50 border border-transparent hover:bg-white hover:border-[var(--green)]/20 hover:shadow-sm hover:translate-x-1 transition-all duration-400"
-              >
-                <div className="w-10 h-10 rounded-xl bg-[var(--green)]/10 flex items-center justify-center text-[var(--green)] flex-shrink-0">
-                  <i className={`fa-solid ${feature.icon}`}></i>
+            {features.map((feature, index) => {
+              const isHighlighted =
+                feature.icon === "fa-user-nurse" ||
+                feature.icon === "fa-spa"
+
+              return (
+                <div 
+                  key={index}
+                  className={`flex items-center gap-4 p-4 rounded-xl border transition-all duration-400
+                    ${isHighlighted 
+                      ? "bg-[var(--green)]/5 border-[var(--green)]/30 shadow-sm scale-[1.02]" 
+                      : "bg-gray-50 border-transparent hover:bg-white hover:border-[var(--green)]/20 hover:shadow-sm hover:translate-x-1"
+                    }
+                  `}
+                >
+                  <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0
+                    ${isHighlighted 
+                      ? "bg-[var(--green)] text-white" 
+                      : "bg-[var(--green)]/10 text-[var(--green)]"
+                    }
+                  `}>
+                    <i className={`fa-solid ${feature.icon}`}></i>
+                  </div>
+
+                  <span className={`text-sm font-semibold
+                    ${isHighlighted ? "text-[var(--green)]" : "text-gray-700"}
+                  `}>
+                    {feature.text}
+                  </span>
                 </div>
-                <span className="text-sm font-semibold text-gray-700">{feature.text}</span>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
 
