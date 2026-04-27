@@ -9,10 +9,13 @@ const IMAGES = {
 }
 
 const features = [
+
   { icon: "fa-user-doctor", text: "فريق متخصص ومدرّب" },
   { icon: "fa-pump-medical", text: "أدوات استخدام واحد" },
   { icon: "fa-lock", text: "خصوصية تامة" },
   { icon: "fa-award", text: "نتائج ملموسة بإذن الله" },
+  { icon: "fa-user-nurse", text: "عمل حجامة بدون حلاقة الشعر للرجال والنساء" },
+  { icon: "fa-spa", text: "جلسات مساج علاجي قبل جلسة الحجامة" }
 ]
 
 export function AboutSection() {
