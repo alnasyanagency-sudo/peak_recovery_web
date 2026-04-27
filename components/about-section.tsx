@@ -1,11 +1,13 @@
 "use client"
 
 import Image from 'next/image'
+import img1 from "@/public/images/image_about_1.jpg"
+import img2 from "@/public/images/image_about_2.jpg"
 
 const IMAGES = {
   reception: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-19%20at%209.26.13%20AM-UcyBZNN7IwdHNQmjYEjriIpBhH2tME.jpeg",
-  hallway: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-19%20at%209.26.16%20AM%20%281%29-yqzpYWI4sqDb8Y83m8y72ysJrHNYAQ.jpeg",
-  office: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-19%20at%209.26.16%20AM-cuPyGIJjg0pcVUbx0ZIGEEdeBZF0ax.jpeg"
+  hallway: img1,
+  office: img2
 }
 
 const features = [
